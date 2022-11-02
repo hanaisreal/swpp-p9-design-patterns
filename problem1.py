@@ -1,9 +1,16 @@
 class Shape:
     @staticmethod
-    def create(name):
+    def create(name):   #shape의 메소드를 부르지 않아도 만들 수 있다. 
         # TODO: Fill the code here
         # NOTE: Raise `ValueError("Invalid name", name)` if there is no such shape.
-
+        if name == "circle":
+            return Circle()
+        elif name == "square":
+            return Square()
+        elif name == "line":
+            return Line()
+        else:
+            return ValueError("Invalid name", name)
 
 class Circle(Shape):
     def draw(self):

@@ -24,12 +24,16 @@ class B:
 
     def __init__(self, value=0):
         # TODO: fill constructor
+        if B._instance is None:
+            B._instance = B._B(value)  #lazy initializing
+        else:
+            B._instance.value = value # just update value
 
 
 if __name__ == "__main__":
     b1 = B(10)
-    print(b1.value)
-    print(B.get_instance())
+    print(b1.value)  #이것도 업데이트에 해당
+    print(B.get_instance()) 
     b2 = B(20)
     print(b2.value)
     print(b1.value)
